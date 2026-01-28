@@ -1,1 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Dev • Designer • Data</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090b;
+            --zinc-100: #f4f4f5;
+            --zinc-400: #a1a1aa;
+            --zinc-800: #27272a;
+            --accent: #22d3ee; /* Cyan */
+        }
 
+        body {
+            background-color: var(--bg);
+            color: var(--zinc-100);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Effet de dégradé animé en arrière-plan */
+        .glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+            transition: transform 0.2s ease-out;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 100px 24px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent); }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 0.9;
+            margin: 20px 0;
+            letter-spacing: -0.05em;
+            background: linear-gradient(180deg, #fff 0%, #3f3f46 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            max-width: 600px;
+            color: var(--zinc-400);
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .badge {
+            padding: 6px 14px;
+            border: 1px solid var(--zinc-800);
+            border-radius: 4px;
+            background: rgba(39, 39, 42, 0.5);
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .cta {
+            margin-top: 50px;
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--zinc-100);
+            color: var(--bg);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 2px;
+            transition: opacity 0.3s;
+        }
+
+        .cta:hover { opacity: 0.9; }
+
+        /* Animation d'entrée */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow" id="glow"></div>
+
+    <main>
+        <div class="reveal" id="hero">
+            <span class="mono uppercase tracking-widest">// DEPLOYING EXCELLENCE</span>
+            <h1>Build.<br>Design.<br>Analyze.</h1>
+            <p>
+                Développeur <span style="color:white">Full Stack</span>, Designer d'interfaces et <span style="color:white">Data Scientist</span>. 
+                Expert en écosystèmes performants (Go, Julia, Node).
+            </p>
+            
+            <div class="stack">
+                <div class="badge">TypeScript</div>
+                <div class="badge">Golang</div>
+                <div class="badge">Julia</div>
+                <div class="badge">Python (FastAPI)</div>
+                <div class="badge">SQL</div>
+            </div>
+
+            <a href="#projects" class="cta">Voir le Lab</a>
+        </div>
+    </main>
+
+    <script>
+        // Suivi de la souris pour l'effet de l'aura (glow)
+        const glow = document.getElementById('glow');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX - 300;
+            const y = e.clientY - 300;
+            glow.style.transform = `translate(${x}px, ${y}px)`;
+        });
+
+        // Animation d'apparition au chargement
+        window.addEventListener('DOMContentLoaded', () => {
+            const hero = document.getElementById('hero');
+            setTimeout(() => {
+                hero.classList.add('active');
+            }, 200);
+        });
+    </script>
+</body>
+</html>
