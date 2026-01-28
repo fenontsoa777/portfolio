@@ -113,15 +113,29 @@
             border-color: var(--accent);
             color: var(--accent);
             background: rgba(34, 211, 238, 0.05);
+            }
+    
+        .cursor {
+            color: var(--accent);
+            animation: blink 0.8s infinite;
+            font-weight: bold;
         }
+    
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+
+        
     </style>
 </head>
 <body>
 
     <div class="glow" id="glow"></div>
 
+    <p class="mono">// <span id="typewriter"></span><span class="cursor">_</span></p>
     
-    <p class="mono">// WEB APP • REST API • AI • AGENTIC SYSTEMS</p>
     <div class="fractal-container">
         <svg id="fractal-svg" viewBox="0 0 800 400"></svg>
     </div>
@@ -174,6 +188,27 @@
 
         // Lancer l'animation au chargement (x, y, longueur, angle, profondeur)
         drawBranch(400, 400, 90, -Math.PI / 2, 6);
+
+
+
+
+        const text = "WEB APP • REST API • AI • AGENTIC SYSTEMS";
+        const speed = 60; // Vitesse de frappe en ms
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+        
+        // Lancer l'animation une fois que la page est chargée
+        window.addEventListener('load', () => {
+            // Petit délai pour laisser la fractale commencer
+            setTimeout(typeWriter, 500);
+        });
     </script>
 </body>
 </html>
