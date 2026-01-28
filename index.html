@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Full Stack • Designer • Data Scientist</title>
+    <title>Portfolio | fenontsoa777</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,7 +11,7 @@
             --zinc-100: #f4f4f5;
             --zinc-400: #a1a1aa;
             --zinc-800: #27272a;
-            --accent: #22d3ee; /* Cyan futuriste */
+            --accent: #22d3ee;
         }
 
         body {
@@ -20,38 +20,48 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center; /* Centre le contenu verticalement si souhaité */
         }
 
-        /* --- EFFET DE FOND (AURA) --- */
+        /* --- EFFET DE FOND --- */
         .glow {
             position: fixed;
             width: 600px;
-            
-            background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+            height: 600px;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 70%);
             border-radius: 50%;
             filter: blur(80px);
             z-index: -1;
             pointer-events: none;
+            top: 0; left: 0;
+            will-change: transform;
         }
-
 
         /* --- CONTENU --- */
         main {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 0 24px 24px 24px;
-            position: relative;
+            padding: 80px 24px;
+            width: 100%;
         }
 
-        .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); }
+        .mono { 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 0.9rem; 
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+        }
 
         h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
             font-weight: 700;
-            line-height: 0.9;
-            margin: 10px 0 30px 0;
-            letter-spacing: -0.05em;
-            background: linear-gradient(180deg, #fff 30%, #3f3f46 100%);
+            line-height: 0.85;
+            margin: 0 0 40px 0;
+            letter-spacing: -0.06em;
+            background: linear-gradient(180deg, #fff 40%, #3f3f46 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -59,63 +69,55 @@
         .description {
             max-width: 650px;
             color: var(--zinc-400);
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
             line-height: 1.6;
         }
 
-        .badge-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .badge-grid { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 12px; 
         }
 
         .badge {
-            padding: 5px 12px;
+            padding: 8px 16px;
             border: 1px solid var(--zinc-800);
             border-radius: 4px;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.02);
-            transition: 0.3s;
+            font-size: 0.8rem;
+            background: rgba(39, 39, 42, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .badge:hover {
             border-color: var(--accent);
             color: var(--accent);
+            transform: translateY(-3px);
             background: rgba(34, 211, 238, 0.05);
-            }
-    
-        .cursor {
-            color: var(--accent);
-            animation: blink 0.8s infinite;
-            font-weight: bold;
-        }
-    
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-
+        .cursor { 
+            color: var(--accent); 
+            animation: blink 0.8s infinite; 
+            margin-left: 2px;
+        }
         
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
     </style>
 </head>
 <body>
 
     <div class="glow" id="glow"></div>
 
-    <p class="mono">fenontsoa777 >> <span id="typewriter"></span><span class="cursor">_</span></p>
-    
-    <div class="fractal-container">
-        <svg id="fractal-svg" viewBox="0 0 800 400"></svg>
-    </div>
-
     <main>
+        <span class="mono">fenontsoa777 >> <span id="typewriter"></span><span class="cursor">_</span></span>
+        
         <h1>Build.<br>Design.<br>Analyze.</h1>
         
         <p class="description">
-            Développeur <span style="color:white">Full Stack</span>, Designer d'interfaces minimalistes et <span style="color:white">Data Scientist</span>. 
+            Développeur <span style="color:white">Full Stack</span>, Designer d'interfaces et <span style="color:white">Data Scientist</span>. 
             Je construis des ponts entre le code brut et l'intelligence artificielle agentique.
         </p>
 
@@ -124,40 +126,36 @@
             <div class="badge">Golang</div>
             <div class="badge">Julia / Python</div>
             <div class="badge">FastAPI</div>
-            <div class="badge">Machine Learning</div>
+            <div class="badge">Agentic AI</div>
             <div class="badge">SQL</div>
         </div>
     </main>
 
     <script>
-        // 1. Suivi de la souris pour l'effet de lumière
+        // 1. Effet Glow (Halo qui suit la souris)
         const glow = document.getElementById('glow');
         document.addEventListener('mousemove', (e) => {
-            glow.style.left = e.clientX - 300 + 'px';
-            glow.style.top = e.clientY - 300 + 'px';
+            // Utilisation de requestAnimationFrame pour une fluidité maximale
+            window.requestAnimationFrame(() => {
+                glow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+            });
         });
 
-        
-
-
-
-
+        // 2. Animation Typewriter
         const text = "WEB APP • REST API • AI • AGENTIC SYSTEMS";
-        const speed = 60; // Vitesse de frappe en ms
         let i = 0;
-        
+        const target = document.getElementById("typewriter");
+
         function typeWriter() {
             if (i < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                target.textContent += text.charAt(i);
                 i++;
-                setTimeout(typeWriter, speed);
+                setTimeout(typeWriter, 50);
             }
         }
-        
-        // Lancer l'animation une fois que la page est chargée
+
         window.addEventListener('load', () => {
-            // Petit délai pour laisser la fractale commencer
-            setTimeout(typeWriter, 500);
+            setTimeout(typeWriter, 800);
         });
     </script>
 </body>
