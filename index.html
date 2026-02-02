@@ -1,162 +1,251 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | fenontsoa777</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <title>Fullstack Developer | Portfolio</title>
+    <meta name="description" content="Fullstack Developer specializing in scalable systems and dynamic user experiences.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portfolio | Fullstack Developer">
+    <meta property="og:description" content="Check out my latest projects and technical skills.">
+    <meta property="og:image" content="https://yourwebsite.com/preview.png">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        dark: '#0f172a',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --bg: #09090b;
-            --zinc-100: #f4f4f5;
-            --zinc-400: #a1a1aa;
-            --zinc-800: #27272a;
-            --accent: #22d3ee;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--zinc-100);
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center; /* Centre le contenu verticalement si souhaité */
-        }
-
-        /* --- EFFET DE FOND --- */
-        .glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            pointer-events: none;
-            top: 0; left: 0;
-            will-change: transform;
-        }
-
-        /* --- CONTENU --- */
-        main {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 40px 24px;
-            width: 100%;
-        }
-
-        .mono { 
-            font-family: 'JetBrains Mono', monospace; 
-            font-size: 0.9rem; 
-            color: var(--accent);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        h1 {
-            font-size: clamp(3.5rem, 10vw, 6.5rem);
-            font-weight: 700;
-            line-height: 0.85;
-            margin: 0 0 40px 0;
-            letter-spacing: -0.06em;
-            background: linear-gradient(180deg, #fff 40%, #3f3f46 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .description {
-            max-width: 650px;
-            color: var(--zinc-400);
-            font-size: 1.2rem;
-            margin-bottom: 50px;
-            line-height: 1.6;
-        }
-
-        .badge-grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 12px; 
-        }
-
-        .badge {
-            padding: 8px 16px;
-            border: 1px solid var(--zinc-800);
-            border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            background: rgba(39, 39, 42, 0.3);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .badge:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-3px);
-            background: rgba(34, 211, 238, 0.05);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .cursor { 
-            color: var(--accent); 
-            animation: blink 0.8s infinite; 
-            margin-left: 2px;
-        }
-        
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
     </style>
 </head>
-<body>
+<body class="bg-dark text-slate-200 font-sans antialiased">
 
-    <div class="glow" id="glow"></div>
-
-    <main>
-        <span class="mono">fenontsoa777 >> <span id="typewriter"></span><span class="cursor">_</span></span>
-        
-        <h1>Build.<br>Design.<br>Analyze.</h1>
-        
-        <p class="description">
-            Développeur <span style="color:white">Full Stack</span>, Designer d'interfaces et <span style="color:white">Data Scientist</span>. 
-            Je construis des ponts entre le code brut et l'intelligence artificielle agentique.
-        </p>
-
-        <div class="badge-grid">
-            <div class="badge">TypeScript / Node.js</div>
-            <div class="badge">Golang</div>
-            <div class="badge">Julia / Python</div>
-            <div class="badge">FastAPI</div>
-            <div class="badge">Agentic AI</div>
-            <div class="badge">SQL</div>
+    <nav class="fixed w-full z-50 bg-dark/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
+                &lt;fenontsoa777 /&gt;
+            </span>
+            <div class="space-x-8 hidden md:flex items-center">
+                <a href="#projects" class="hover:text-primary transition">Projects</a>
+                <a href="#contact" class="px-4 py-2 bg-primary/10 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition">Contact</a>
+            </div>
         </div>
-    </main>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+        <div class="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-wider text-primary uppercase bg-primary/10 border border-primary/20 rounded-full animate-bounce">
+            Available for Work
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
+            Building <span class="text-primary">Scalable</span> <br>End-to-End Systems
+        </h1>
+        <p class="max-w-2xl text-slate-400 text-lg mb-10 leading-relaxed">
+            I’m a Fullstack Developer focused on bridging the gap between robust backend architecture and seamless frontend interfaces. I build for the future by weaving AI capabilities into the fabric of the modern web. 
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <a href="#projects" class="bg-primary hover:bg-blue-600 text-white px-10 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-xl shadow-primary/20">
+                Explore Projects
+            </a>
+            <a href="#contact" class="bg-slate-800 hover:bg-slate-700 text-white px-10 py-4 rounded-xl font-bold transition">
+                Get In Touch
+            </a>
+        </div>
+    </section>
+
+    <section id="projects" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div>
+                <h2 class="text-4xl font-bold mb-2">PROJECTS</h2>
+                <p class="text-slate-400 italic font-mono text-sm">Automated sync with GitHub API...</p>
+            </div>
+            <a href="https://github.com/fenontsoa777" target="_blank" class="text-primary hover:underline font-medium">View GitHub Profile →</a>
+        </div>
+        
+        <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>
+    </section>
+
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-24">
+        <div class="bg-slate-800/30 border border-slate-700 p-8 md:p-12 rounded-3xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 relative z-10">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Let's build something <span class="text-primary">impactful</span>.</h2>
+                    <p class="text-slate-400 mb-8 leading-relaxed">
+                        Currently seeking new challenges. Whether you have a project in mind or just want to talk shop, I'm all ears.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 text-slate-300">
+                            <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700">📍</div>
+                            <span>Remote / Worldwide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contact-form" action="https://formspree.io/f/xvzqvajz" method="POST" class="space-y-4">
+                    <input type="text" name="name" placeholder="Full Name" required class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 focus:border-primary outline-none transition text-white">
+                    <input type="email" name="email" placeholder="Email Address" required class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 focus:border-primary outline-none transition text-white">
+                    <textarea name="message" rows="4" placeholder="Your Project Details" required class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 focus:border-primary outline-none transition text-white"></textarea>
+                    <button type="submit" id="submit-btn" class="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <!--/////reseaux sociaux//// !-->
+    <section id="socials" class="max-w-6xl mx-auto px-6 py-12">
+    <div class="flex flex-wrap justify-center gap-4 md:gap-6">
+        
+        <a href="https://github.com/YOUR_USERNAME" target="_blank" class="social-card group">
+            <i data-lucide="github" class="w-5 h-5 group-hover:text-primary transition-colors"></i>
+            
+        </a>
+
+        <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank" class="social-card group">
+            <i data-lucide="linkedin" class="w-5 h-5 group-hover:text-blue-500 transition-colors"></i>
+            
+        </a>
+
+        <a href="https://facebook.com/YOUR_USERNAME" target="_blank" class="social-card group">
+            <i data-lucide="facebook" class="w-5 h-5 group-hover:text-blue-600 transition-colors"></i>
+            
+        </a>
+
+        <a href="https://instagram.com/YOUR_USERNAME" target="_blank" class="social-card group">
+            <i data-lucide="instagram" class="w-5 h-5 group-hover:text-pink-500 transition-colors"></i>
+            
+        </a>
+
+        <a href="https://x.com/YOUR_USERNAME" target="_blank" class="social-card group">
+            <i data-lucide="twitter" class="w-5 h-5 group-hover:text-sky-400 transition-colors"></i>
+            
+        </a>
+
+    </div>
+</section>
+
+<style>
+    /* Custom utility for the social cards to keep the HTML clean */
+    .social-card {
+        @apply flex items-center gap-3 px-5 py-3 bg-slate-800/30 border border-slate-700/50 rounded-xl 
+               hover:bg-slate-800 hover:border-slate-500 transition-all duration-300 transform hover:-translate-y-1;
+    }
+</style>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+</script>
+
+
+
+    <footer class="text-center py-10 border-t border-slate-800 text-slate-500 text-sm">
+        <p>© 2026 Build with HTML, Tailwind & Vanilla JS. Hosted on GitHub Pages.</p>
+    </footer>
 
     <script>
-        // 1. Effet Glow (Halo qui suit la souris)
-        const glow = document.getElementById('glow');
-        document.addEventListener('mousemove', (e) => {
-            // Utilisation de requestAnimationFrame pour une fluidité maximale
-            window.requestAnimationFrame(() => {
-                glow.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
-            });
-        });
+        const GITHUB_USERNAME = 'fenontsoa777';
 
-        // 2. Animation Typewriter
-        const text = "WEB APP • REST API • AI • AGENTIC SYSTEMS";
-        let i = 0;
-        const target = document.getElementById("typewriter");
+        // 1. Project Skeleton Loader
+        function generateSkeletons(count = 6) {
+            const skeletonCard = `
+                <div class="bg-slate-800/30 border border-slate-700/50 p-6 rounded-2xl animate-pulse">
+                    <div class="w-10 h-10 bg-slate-700 rounded-lg mb-4"></div>
+                    <div class="h-6 bg-slate-700 rounded w-3/4 mb-4"></div>
+                    <div class="h-4 bg-slate-700 rounded w-full mb-2"></div>
+                    <div class="h-4 bg-slate-700 rounded w-5/6 mb-6"></div>
+                    <div class="flex gap-2">
+                        <div class="h-4 bg-slate-700 rounded w-12"></div>
+                        <div class="h-4 bg-slate-700 rounded w-12"></div>
+                    </div>
+                </div>`;
+            return new Array(count).fill(skeletonCard).join('');
+        }
 
-        function typeWriter() {
-            if (i < text.length) {
-                target.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 50);
+        // 2. Fetch Projects from GitHub
+        async function fetchProjects() {
+            const grid = document.getElementById('project-grid');
+            grid.innerHTML = generateSkeletons();
+
+            try {
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=20`);
+                const repos = await response.json();
+                
+                grid.innerHTML = repos
+                    //.filter(repo => !repo.fork && repo.description)
+                    .slice(0, 6)
+                    .map(repo => `
+                        <div class="bg-slate-800/40 border border-slate-700 p-6 rounded-2xl hover:border-primary/50 hover:-translate-y-2 transition-all duration-300 group">
+                            <div class="text-primary mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition">${repo.name}</h3>
+                            <p class="text-slate-400 text-sm mb-6 line-clamp-2">${repo.description}</p>
+                            <div class="flex items-center justify-between mt-auto">
+                                <span class="text-xs font-mono text-slate-500 px-2 py-1 bg-slate-900 rounded border border-slate-700">
+                                    ${repo.language || 'Code'}
+                                </span>
+                                <a href="${repo.html_url}" target="_blank" class="text-xs font-bold text-primary hover:underline">Source Code →</a>
+                            </div>
+                        </div>
+                    `).join('');
+            } catch (e) {
+                grid.innerHTML = `<p class="col-span-full text-center text-red-400">Failed to load projects. Check console for details.</p>`;
             }
         }
 
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter, 800);
+        // 3. Form Handling
+        const form = document.getElementById('contact-form');
+        const btn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    btn.innerText = 'Success! I will reply soon.';
+                    btn.classList.replace('bg-primary', 'bg-green-600');
+                    form.reset();
+                }
+            } catch (err) {
+                btn.innerText = 'Error! Try again.';
+                btn.classList.replace('bg-primary', 'bg-red-600');
+            }
         });
+
+        document.addEventListener('DOMContentLoaded', fetchProjects);
     </script>
 </body>
 </html>
